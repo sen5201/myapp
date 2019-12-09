@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.denali.app.entity.SysRole;
 import com.denali.app.mapper.SysRoleMapper;
+import com.denali.app.service.async.MyTestAsync;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -26,8 +27,14 @@ public class SysRoleController {
     @Autowired
     private SysRoleMapper sysRoleMapper;
 
+    @Autowired
+    private MyTestAsync myTestAsync;
+
     @RequestMapping ("/sendMsg")
     public void sendMsg(){
+
+        //测试异步线程池
+        myTestAsync.test();
 
         IPage<SysRole> sysRoleIPage = sysRoleMapper.selectPage(new Page<SysRole>(0, 1), null);
 
