@@ -1,7 +1,7 @@
 package com.denali.app;
 
 import com.alibaba.fastjson.JSONObject;
-import com.denali.app.utils.RedisUtil;
+import com.denali.app.common.RedisService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class MyTest {
     @Autowired
-    private RedisUtil redisUtils;
+    private RedisService redisService;
 
 
     @Test
@@ -25,17 +25,17 @@ public class MyTest {
         jj.put("name","的的");
         jj.put("age",19);
 
-        redisUtils.set("test_key", jj, 90000);
-        redisUtils.set("aaaa", "hha哈哈");
+        redisService.set("test_key", jj, 90000L);
+        redisService.set("aaaa", "hha哈哈");
     }
 
     @Test
     public void getdata() {
 
-        JSONObject test_key = (JSONObject)redisUtils.get("test_key");
+        JSONObject test_key = (JSONObject)redisService.get("test_key");
         System.out.println(test_key.toJSONString());
-        String a1 = (String) redisUtils.get("aaaa");
-        Object o = redisUtils.get("aaaa");
+        String a1 = (String) redisService.get("aaaa");
+        Object o = redisService.get("aaaa");
         System.out.println(o);
     }
 

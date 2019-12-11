@@ -1,5 +1,6 @@
 package com.denali.app;
 
+import com.denali.app.annotation.EnableRedisSuport;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -16,6 +17,7 @@ import javax.sql.DataSource;
 
 @EnableSwagger2
 @EnableAsync  // 声明异步任务
+@EnableRedisSuport  //开启自定义redis支持
 @SpringBootApplication
 @MapperScan("com.denali.app.mapper")
 @Slf4j
