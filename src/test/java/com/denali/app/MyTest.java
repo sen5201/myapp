@@ -1,7 +1,7 @@
 package com.denali.app;
 
 import com.alibaba.fastjson.JSONObject;
-import com.denali.app.common.RedisService;
+import com.denali.app.service.redis.RedisService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
