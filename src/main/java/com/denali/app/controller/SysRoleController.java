@@ -3,6 +3,7 @@ package com.denali.app.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.denali.app.aspect.WebLog;
 import com.denali.app.entity.SysRole;
 import com.denali.app.mapper.SysRoleMapper;
 import com.denali.app.service.async.MyTestAsync;
@@ -31,6 +32,7 @@ public class SysRoleController {
     private MyTestAsync myTestAsync;
 
     @RequestMapping ("/sendMsg")
+    @WebLog(description = "请求了测试接口")  //测试aop日志功能
     public void sendMsg(){
 
         //测试异步线程池
